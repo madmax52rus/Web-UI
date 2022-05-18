@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class homework3 {
+public class Homework3 {
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
