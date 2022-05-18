@@ -8,11 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.yandex.qatools.htmlelements.matchers.WebElementMatchers.*;
 
 public class GitHubTest {
     WebDriver driver;
@@ -49,20 +45,9 @@ Actions action = new Actions(driver);
         driver.findElement(By.xpath("//a[text()='Your profile']")).click();
         Assertions.assertTrue(driver.getCurrentUrl().contains("madtux52rus"));
 
-        //assertThat(driver.findElement(By.id("login")), isEnabled());
     }
 
-    @Test
-    void textTest() {
-        driver.findElement(By.xpath("//a[@href='/login']")).click();
-        driver.findElement(By.id("login_field")).sendKeys("madtux52rus");
-        driver.findElement(By.id("password")).sendKeys("Testpar0l");
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
-        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='Box-body']")));
-        assertThat(driver.findElement(By.xpath("//div[@class='Box-body']")), hasText("I’m interested in ..."));
-    }
-
-    @AfterAll
+    @AfterEach
     void tearDown() {
         driver.quit();
     }
